@@ -42,7 +42,7 @@ namespace WebApi.Hal.Web.Api
         {
             var beerStyle = beerDbContext.Styles.SingleOrDefault(s => s.Id == id);
             if (beerStyle == null)
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, (object)null);
 
             var beerStyleResource = new BeerStyleRepresentation
             {

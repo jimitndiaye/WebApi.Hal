@@ -11,7 +11,7 @@
     <RootNamespace>WebApi.Hal</RootNamespace>
     <AssemblyName>WebApi.Hal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile158</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile143</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -40,7 +40,9 @@
       <Link>HalWebApi.nuspec</Link>
     </None>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\WebApi.Hal\HypermediaList.cs">
@@ -61,11 +63,17 @@
     <Compile Include="..\WebApi.Hal\JsonConverters\ResourceListConverter.cs">
       <Link>JsonConverters\ResourceListConverter.cs</Link>
     </Compile>
+    <Compile Include="..\WebApi.Hal\JsonHalMediaTypeFormatter.cs">
+      <Link>JsonHalMediaTypeFormatter.cs</Link>
+    </Compile>
     <Compile Include="..\WebApi.Hal\Representation.cs">
       <Link>Representation.cs</Link>
     </Compile>
     <Compile Include="..\WebApi.Hal\RepresentationList.cs">
       <Link>RepresentationList.cs</Link>
+    </Compile>
+    <Compile Include="..\WebApi.Hal\XmlHalMediaTypeFormatter.cs">
+      <Link>XmlHalMediaTypeFormatter.cs</Link>
     </Compile>
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +89,9 @@
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.1.3-beta\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\lib\System.Net.Http.Formatting\Debug\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.1.3-beta\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
@@ -90,6 +101,9 @@
     <Reference Include="System.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\portable-net40+sl5+win8+wp8\System.Threading.Tasks.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>
